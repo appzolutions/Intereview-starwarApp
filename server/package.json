@@ -1,0 +1,22 @@
+{
+  "name": "starwarapp",
+  "version": "1.0.0",
+  "description": "test app by salam dawod ",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "g": "^2.0.1",
+    "make-fetch-happen": "^9.0.3",
+    "node-fetch": "^2.6.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  }
+}
