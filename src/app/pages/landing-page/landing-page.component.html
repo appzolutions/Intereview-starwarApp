@@ -22,7 +22,7 @@
     </div>
     <mat-spinner *ngIf="showLoader"></mat-spinner>
     <div class="row mt-5">
-      <div class="col-sm-4" *ngFor="let i of charactersArray">
+      <div class="col-sm-4 fade-in-bottom" *ngFor="let character of charactersArray; let i = index" [ngClass]="'fade-in-bottom-'+(i+1)">
         <img src="https://via.placeholder.com/300/FFFF00/000000?Text=WebsiteBuilders.com">
       </div>
     </div>
