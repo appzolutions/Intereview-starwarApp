@@ -1,5 +1,7 @@
 # StarWarApp
 
+Live preview: https://codermug-32d02.web.app/
+
 The project consists of 3 Folders:
 
 # App Folder: The angular app
