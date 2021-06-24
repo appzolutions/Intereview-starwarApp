@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction} from 'express';
 
-export const validateReq = function validateReq(req: Request, res: Response, next: NextFunction) {
+function validateReq(req: Request, res: Response, next: NextFunction) {
     
     if (req.params.id) {
         next();
@@ -10,3 +10,4 @@ export const validateReq = function validateReq(req: Request, res: Response, nex
   
 }
 
+module.exports = validateReq;

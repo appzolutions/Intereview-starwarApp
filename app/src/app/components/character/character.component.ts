@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { People } from 'src/app/models/people';
 
 @Component({
@@ -8,14 +8,19 @@ import { People } from 'src/app/models/people';
 })
 export class CharacterComponent implements OnInit {
 
-  @Input() character: People;
-  showLoader = true;
+  @Input()  character: People;
+  @Output() clearCharacter = new EventEmitter<boolean>();
+
+
   constructor() { }
 
   ngOnInit(): void {
-    if (this.character)
-     this.showLoader = false;
-    console.log('gogo:: ', this.character)
+   
+  }
+  back() {
+    this.character = null;
+      this.clearCharacter.emit(true);
+
   }
 
 }
