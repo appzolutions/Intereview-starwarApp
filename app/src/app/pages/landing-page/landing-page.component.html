@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-5">
             <div class="form-group">
-                <input type="text" class="form-control form-control-lg" required minlength="1" [(ngModel)]="characterInput" #chInput="ngModel" >
+                <input type="text" class="form-control form-control-lg border-0" required minlength="1" [(ngModel)]="characterInput" #chInput="ngModel" placeholder="Type number, ex: 1">
                 <!--<div *ngIf="chInput.invalid && (chInput.dirty || chInput.touched)" class="alert">
                     <div *ngIf="chInput.errors?.required">
                         Name is required.
@@ -20,10 +20,22 @@
             </div>
         </div>
     </div>
-    <mat-spinner *ngIf="showLoader"></mat-spinner>
+    <div class="row"  *ngIf="showLoader && loadedCharacter == null">
+        <div class="col-lg-12 mt-5">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+    <character-component  [character]="loadedCharacter | async" ></character-component>
+   
+
     <div class="row mt-5">
       <div class="col-sm-4 fade-in-bottom" *ngFor="let character of charactersArray; let i = index" [ngClass]="'fade-in-bottom-'+(i+1)">
-        <img src="https://via.placeholder.com/300/FFFF00/000000?Text=WebsiteBuilders.com">
+          <div class="box mb-2">
+            <div class="content">
+                <img src="../../../assets/{{character.name | loadCharacterPicture }}">
+            </div>
+            <div class="title">{{character.name}}</div>
+          </div>
       </div>
     </div>
   </div>

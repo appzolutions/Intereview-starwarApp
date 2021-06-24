@@ -1,12 +1,31 @@
 /* https://codepen.io/YusukeNakaya/pen/XyOaBj */
 body {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
     font-family: 'Anton', sans-serif;
     justify-content: center;
     align-items: center;
+  }
+  /* charactor box style */
+.box{
+    background: #0a0b11;
+    box-shadow: -3px 10px 29px 0px rgba(70,76,131,0.75);
+  -webkit-box-shadow: -3px 10px 29px 0px rgba(70,76,131,0.75);
+  -moz-box-shadow: -3px 10px 29px 0px rgba(70,76,131,0.75);
+    .title{
+      color: #5f91ff;
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    .content {
+      padding: 20px;
+      img {
+        width: 100%;
+        height: 400px;
+      }
+    }
   }
   
   $shooting-time: 3000ms;
@@ -16,6 +35,7 @@ body {
     width: 100%;
     height: 100%;
     transform: rotateZ(45deg);
+    z-index: 1;
     // animation: sky 200000ms linear infinite;
   }
   
@@ -62,7 +82,7 @@ body {
       transform: translateX(50%) rotateZ(-45deg);
     }
     
-    @for $i from 1 through 20 {
+    @for $i from 1 through 50 {
       &:nth-child(#{$i}) {
         $delay: random(9999) + 0ms;
         top: calc(50% - #{random(400) - 200px});

@@ -7,6 +7,19 @@ import { Species } from '../models/species';
 export class peopleService {
     private endPoint = 'https://swapi.dev/api/';
     public  people: People;
+    public getAll() {
+        return  fetch(this.endPoint + 'people/' )
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.results) {
+                return data.results;
+            } else {
+                return {}
+            }
+            
+        });
+    }
     public  getPeople(id: number): Promise<any> {
       
       return  fetch(this.endPoint + 'people/' + id)
@@ -26,23 +39,16 @@ export class peopleService {
                     info.push(this.getSpecies(data.species));
                 }
                 return Promise.all(info).then(ress => {
-                    return ress;
-                  // return ress.map((val, index) => {return Object.keys(ress[index])});
                    return {
+                       ...charactor,
                        ...ress[0],
                        ...ress[1],
                        ...ress[2],
                    }
-                  
                 });
             }
             
-            return {};
-            
-
-          
-          
-                       
+            return {};        
           
         }).catch(err => {
             console.error(err);
@@ -91,7 +97,7 @@ export class peopleService {
 
     
 
-    //**
+    //** todo move it to separate class
     // ** format the returned data to match the model (data struct)
     // **//
     private buildPeopleStruct(data) {

@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'starWarApp';
 
+  constructor() {
+
+  }
+  
   outPutStars(i) {
     return new Array(i);
   }

@@ -8,18 +8,25 @@ import { CharacterService } from '../../services/character.service';
 export class LandingPageComponent implements OnInit {
 
   public characterInput;
-  public charactersArray = [];
+  public charactersArray: any;
+  public loadedCharacter;
 
   /* for view */
   public showLoader = false;
-  constructor(public characterServe: CharacterService) { }
+  constructor(public characterService: CharacterService) { }
 
   ngOnInit(): void {
-    this.charactersArray = this.characterServe.loadDefaultFeed();
+    this.showLoader = true;
+     this.characterService.loadDefaultFeed().subscribe(res => {
+       console.log(res);
+      this.charactersArray = res;
+      this.showLoader = false;
+     });
   }
 
   lookForCharacter() {
     this.showLoader = true;
+    this.loadedCharacter = this.characterService.loadSingleCharactor(this.characterInput);
     console.log('Characters ..');
   }
 

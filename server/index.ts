@@ -1,18 +1,20 @@
 import { peopleService } from './services'
 import  express from 'express';
+import cors from 'cors'
 // definitins 
 const app     = express();
 const port    = 3000;
 const plSrv   = new peopleService(); 
 
 // call middlewares in a request function pipeline
+app.use(cors())
 app.use(express.json());
 app.use((req, res, next)=> {
     next(); // to pass control to the next function into the pipeline
 });
 // main routes
 app.get('/api/characters/:id', (req:  express.Request, res:  express.Response) => {
-    // to do validate integer 
+    // todo validate param 
     let peopleId = req.params.id;
     plSrv.getPeople(peopleId).then(result => {
         res.status(200).send(result);
@@ -45,6 +47,18 @@ app.get('/api/characters/:id', (req:  express.Request, res:  express.Response) =
     });*/
     
     
+
+});
+app.get('/api/characters/', (req:  express.Request, res:  express.Response) => {
+    // todo validate param 
+    
+    plSrv.getAll().then(result => {
+        res.status(200).send(result);
+    }).catch(err => {
+        console.error('Unable to complete request!', err);
+        res.status(404).send('error');
+
+    })
 
 });
 

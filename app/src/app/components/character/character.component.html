@@ -1,0 +1,17 @@
+<div class="row mt-5" *ngIf="character">
+    <div class="col-sm-6 fade-in-bottom">
+        <div class="box mb-2">
+          <div class="content">
+              <img src="../../../assets/{{character.name | loadCharacterPicture }}">
+          </div>
+          <div class="title">{{character.name}}</div>
+        </div>
+    </div>
+    <div class="col-sm-6 fade-in-bottom">
+      <div class="white-board">
+        <pre>
+        {{character | json }}
+      </pre>
+      </div>
+    </div>
+  </div>
