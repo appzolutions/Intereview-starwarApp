@@ -14,4 +14,4 @@ The project consists of 3 Folders:
 
 - fb-server Folder:  
 - The same above Node Restful API wrapped using Firebase function for hosting purpose 
-
+- to access the FB endpoints please check your email 
