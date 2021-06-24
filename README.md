@@ -1,7 +1,8 @@
 # StarWarApp
 
 The project consists of 3 Folders:
-#App Folder: The angular app
+
+# App Folder: The angular app
  - generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
  - Requirments: node 12
  - To Run the app: npm i, then ng serve (to run the app localy)
